@@ -4,7 +4,7 @@
 
 ```
 Note: The obfuscated assemblies for each test scenario are already in the output folders below. 
-You can look at them without completing the test steps.
+You can look at them without having to complete the test steps.
 NETReactor1_Output
 NETReactor2_Output
 NETReactor3_Output
