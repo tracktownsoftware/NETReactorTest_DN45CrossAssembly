@@ -2,6 +2,15 @@
 
 **The Goal: All internal class names and members should be obfuscated/renamed.**
 
+```
+Note: The obfuscated assemblies for each test scenario are in the output folders below, 
+if you want to look at them without having to complete the test steps.
+NETReactor1_Output
+NETReactor2_Output
+NETReactor3_Output
+```
+
+
 Input assemblies for obfuscation:
 1. Library1.dll (Contains InternalClass.cs and [assembly: InternalsVisibleTo("Library2")] in AssemblyInfo.cs)
 2. Library2.dll (Uses the Library1.InternalClass class)
@@ -34,16 +43,16 @@ ConsoleAppTest...
 Hello World from Library1.PublicClass
 Hello World from Library1.InternalClass
 ```
-6. FAIL: This test runs but in NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed.
+6. RESULT: FAIL. ConsoleAppTest runs, but in assembly NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed.
 
 **Obfuscation Test: NETReactorTest2_IgnoreInternalsVisibleTo.nrproj:**
-1. Open NETReactorTest1.nrproj in .NET Reactor app
+1. Open NETReactorTest2_IgnoreInternalsVisibleTo.nrproj in .NET Reactor app
 2. Note:
     - Library1.dll and Library2.dll are input files for obfuscation
     - String encryption is off
     - Ignore InternalsVisibleTo *IS* checked
 3. Click "Protect" to build obfuscated assemblies to folder NETReactor2_Output
-4. In a command window navigate to the NETReactor2_Ouput folder and run ConsoleAppTest.
+4. In a command window navigate to the NETReactor2_Output folder and run ConsoleAppTest.
 5. Console output:
 ```
 ConsoleAppTest...
@@ -53,10 +62,10 @@ Unhandled Exception: System.TypeLoadException: Could not load type 'Library1.Int
    at Library2.PublicClass.Library1InternalClass_SaySomething()
    at ConsoleAppTest.Program.Main(String[] args)
 ```
-6. FAIL: This test does not run. However, in NETReactor2_Output\Library1.dll the InternalClass1 name and its method SaySomething *are* obfuscated\renamed.
+6. RESULT: FAIL. ConsoleAppTest does not run. However, in assembly NETReactor2_Output\Library1.dll the InternalClass1 name and its method SaySomething *are* obfuscated\renamed.
 
 **Obfuscation Test: NETReactorTest3_StringEncryption.nrproj:**
-1. Open NETReactorTest1.nrproj in .NET Reactor app
+1. Open NETReactorTest3_StringEncryption.nrproj in .NET Reactor app
 2. Note:
     - Library1.dll and Library2.dll are input files for obfuscation
     - String encryption is *ON*
@@ -66,10 +75,9 @@ Unhandled Exception: System.TypeLoadException: Could not load type 'Library1.Int
 5. Console output:
 ```
 ConsoleAppTest...
-Hello World from Library1.PublicClass
 
-Unhandled Exception: System.TypeLoadException: Could not load type 'Library1.InternalClass' from assembly 'Library1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
-   at Library2.PublicClass.Library1InternalClass_SaySomething()
+Unhandled Exception: System.Exception: Exception of type 'System.Exception' was thrown.
+   at lCDAsW5mfE1qB1o2W5.nLvrU8AQJDKRRZAB7e.VSb8aYHvXo(Int32  )
    at ConsoleAppTest.Program.Main(String[] args)
 ```
-6. FAIL: This test does not run. The good news is in NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething *are* obfuscated\renamed.
+6. RESULT: FAIL. ConsoleAppTest does not run. Also, In assembly NETReactor3_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed.
