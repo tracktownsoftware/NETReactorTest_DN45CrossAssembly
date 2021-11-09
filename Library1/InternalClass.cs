@@ -8,7 +8,7 @@ namespace Library1
 {
     internal class InternalClass
     {
-        public string SaySomething()
+        internal string SaySomething()
         {
             return "Hello World from Library1.InternalClass";
         }
