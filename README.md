@@ -18,14 +18,15 @@ ConsoleAppTest...
 Hello World from Library1.PublicClass
 Hello World from Library1.InternalClass
 Press any key to continue . . .
+```
 
-**Test NETReactorTest1.nrproj: The test below runs, but open NETReactor1_Ouput\Library1.dll in ildasm.exe and you will see no obfuscation renaming for InternalClass1 and Internalclass1.Saysomething . **
+**Test NETReactorTest1.nrproj:**
 1. Open NETReactorTest1.nrproj in .NET Reactor app
 2. Note:
     - Library1.dll and Library2.dll are input files for obfuscation
     - String encryption is off
     - Ignore InternalsVisibleTo is *not* checked
-3. Click "Protect" to build obfuscated assemblies to folder NETReactor1_Ouput
+3. Click "Protect" to build obfuscated assemblies to folder NETReactor1_Output
 4. In a command window navigate to the NETReactor1_Ouput folder and run ConsoleAppTest.
 6. Console output:
 ```
@@ -33,3 +34,4 @@ ConsoleAppTest...
 Hello World from Library1.PublicClass
 Hello World from Library1.InternalClass
 ```
+7. FAIL: This test runs but in NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed.
