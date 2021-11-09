@@ -1,11 +1,10 @@
 # NETReactorTest_DN45CrossAssembly
-Testing InternalsVisibleTo cross assembly obfuscation with .NET Reactor
 
 **The Goal: All internal class names and members should be obfuscated/renamed.**
 
 Input assemblies for obfuscation:
-    - Library1.dll (Contains InternalClass.cs and [assembly: InternalsVisibleTo("Library2")] in AssemblyInfo.cs)
-    - Library2.dll (Uses the Library1.InternalClass class)
+1. Library1.dll (Contains InternalClass.cs and [assembly: InternalsVisibleTo("Library2")] in AssemblyInfo.cs)
+2. Library2.dll (Uses the Library1.InternalClass class)
 
 **Test in Visual Studio2022**
 1. Open NETReactorTest_DN45CrossAssembly.sln
@@ -19,11 +18,8 @@ ConsoleAppTest...
 Hello World from Library1.PublicClass
 Hello World from Library1.InternalClass
 Press any key to continue . . .
-```
 
-Note: Building NETReactorTest_DN45CrossAssembly.sln calls copyConsoleApp.bat which copies ConsoleAppTest.exe to the folders used for the test below.
-
-**1. Test NETReactorTest1.nrproj: The test below runs, but open NETReactor1_Ouput\Library1.dll in ildasm.exe and you will see no obfuscation renaming for InternalClass1 and Internalclass1.Saysomething . **
+**Test NETReactorTest1.nrproj: The test below runs, but open NETReactor1_Ouput\Library1.dll in ildasm.exe and you will see no obfuscation renaming for InternalClass1 and Internalclass1.Saysomething . **
 1. Open NETReactorTest1.nrproj in .NET Reactor app
 2. Note:
     - Library1.dll and Library2.dll are input files for obfuscation
