@@ -2,6 +2,8 @@
 
 **The Goal: All internal class names and members should be obfuscated/renamed.**
 
+*UPDATE: The issues below are fixed as of Eziriz .NET Reactor 6.7.7.5 - Demo Version*
+
 ```
 Note: The obfuscated assemblies for each test scenario are already in the output folders below. 
 You can look at them without having to complete the test steps.
