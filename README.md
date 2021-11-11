@@ -45,7 +45,8 @@ ConsoleAppTest...
 Hello World from Library1.PublicClass
 Hello World from Library1.InternalClass
 ```
-6. RESULT: FAIL. ConsoleAppTest runs, but in assembly NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed. NOTE: to obfuscate/rename internal types and members .NET Reactor requires checking a "Ignore InternalsVisibleTo" setting (see my next test).
+6. RESULT: FAIL. ConsoleAppTest runs, but in assembly NETReactor1_Output\Library1.dll the InternalClass1 name and its method SaySomething are not obfuscated\renamed. 
+7. NOTE: to obfuscate/rename internal types and members .NET Reactor requires checking a "Ignore InternalsVisibleTo" setting (see my next test).
 
 **Obfuscation Test: NETReactorTest2_IgnoreInternalsVisibleTo.nrproj:**
 1. Open NETReactorTest2_IgnoreInternalsVisibleTo.nrproj in .NET Reactor app
